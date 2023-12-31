@@ -21,12 +21,6 @@
       margin: 10px;
     }
     
-    .coin-result {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-    
     .button {
       display: inline-block;
       padding: 10px 20px;
@@ -60,25 +54,23 @@
     function flipCoin() {
       var coinCount = document.getElementById("coin-count").value;
       var result = "";
+      var headsCount = 0;
       
       for (var i = 0; i < coinCount; i++) {
         var randomNumber = Math.random();
         
         if (randomNumber < 0.5) {
-          result += '<img class="coin-image" src="coin_head.png" alt="硬币图像">';
+          result += '<img class="coin-image" src="coin_head.png" alt="正面">';
+          headsCount++;
         } else {
-          result += '<img class="coin-image" src="coin_tail.png" alt="硬币图像">';
-        }
-        
-        if ((i + 1) % 3 === 0) {
-          result += '<br>';
+          result += '<img class="coin-image" src="coin_tail.png" alt="反面">';
         }
       }
       
       document.querySelector(".coin-result").innerHTML = result;
       
       // 弹窗展示结果
-      alert("投掷结果：" + coinCount + " 枚硬币\n\n" + result);
+      alert("投掷了 " + coinCount + " 枚硬币\n\n正面：" + headsCount + " 枚\n反面：" + (coinCount - headsCount) + " 枚");
     }
   </script>
 </body>
