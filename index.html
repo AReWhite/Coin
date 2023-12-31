@@ -17,8 +17,8 @@
     }
     
     .coin-image {
-      max-width: 200px;
-      margin: 20px auto;
+      max-width: 100px;
+      margin: 10px;
     }
     
     .coin-result {
@@ -49,8 +49,6 @@
 
   <div class="coin-result"></div>
   
-  <img class="coin-image" src="coin_head.png" alt="硬币图像">
-  
   <p>投掷硬币的数量：</p>
   <input type="number" id="coin-count" min="1" max="10" value="1">
   
@@ -70,6 +68,10 @@
           result += '<img class="coin-image" src="coin_head.png" alt="硬币图像">';
         } else {
           result += '<img class="coin-image" src="coin_tail.png" alt="硬币图像">';
+        }
+        
+        if ((i + 1) % 3 === 0) {
+          result += '<br>';
         }
       }
       
