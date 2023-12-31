@@ -1,24 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Image Sharing</title>
+  <title>投掷硬币</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    h1 {
+      margin-top: 0;
+    }
+    
+    .coin-image {
+      max-width: 200px;
+      margin: 20px auto;
+    }
+    
+    .coin-result {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Image Sharing Website</h1>
-    <input type="file" accept="image/*" id="uploadInput">
-    <button onclick="uploadImage()">Upload Image</button>
-  </header>
+  <h1>投掷硬币</h1>
 
-  <main>
-    <section id="imageGallery">
-      <!-- Uploaded images will be displayed here -->
-    </section>
-  </main>
-
-  <script src="scripts.js"></script>
+  <div class="coin-result"></div>
+  
+  <img class="coin-image" src="coin_head.png" alt="硬币图像">
+  
+  <p>投掷硬币的数量：</p>
+  <input type="number" id="coin-count" min="1" max="10" value="1">
+  
+  <br><br>
+  
+  <button class="button" onclick="flipCoin()">投掷硬币</button>
+  
+  <script>
+    function flipCoin() {
+      var coinCount = document.getElementById("coin-count").value;
+      var result = "";
+      
+      for (var i = 0; i < coinCount; i++) {
+        var randomNumber = Math.random();
+        
+        if (randomNumber < 0.5) {
+          result += '<img class="coin-image" src="coin_head.png" alt="硬币图像">';
+        } else {
+          result += '<img class="coin-image" src="coin_tail.png" alt="硬币图像">';
+        }
+      }
+      
+      document.querySelector(".coin-result").innerHTML = result;
+    }
+  </script>
 </body>
 </html>
