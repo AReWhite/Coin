@@ -22,7 +22,7 @@
     }
     
 
-.button {
+    .button {
       padding: 10px 20px;
       font-size: 16px;
       background-color: #007bff;
@@ -33,22 +33,28 @@
     }
     
     .button:hover {
-      background-color: #007bff;
+      background-color: #0056b3;
+    }
+
+    .coin-result {
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>投掷硬币</h1>
+  <div id="app">
+    <h1>投掷硬币</h1>
 
-  <div class="coin-result"></div>
+    <div class="coin-result"></div>
   
-  <p>投掷硬币的数量：</p>
-  <input type="number" id="coin-count" min="1" max="10" value="1">
+    <p>投掷硬币的数量：</p>
+    <input type="number" id="coin-count" min="1" max="10" value="1">
   
-  <br><br>
+    <br><br>
   
-  <button class="button" onclick="flipCoin()">投掷硬币</button>
-  
+    <button class="button" onclick="flipCoin()">投掷硬币</button>
+  </div>
+
   <script>
     function flipCoin() {
       var coinCount = document.getElementById("coin-count").value;
