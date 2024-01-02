@@ -10,6 +10,8 @@
       text-align: center;
       margin: 0;
       padding: 20px;
+      background-color: #fff;
+      color: #000;
     }
     
     h1 {
@@ -39,6 +41,21 @@
     .coin-result {
       margin-top: 20px;
     }
+    
+    /* 夜间模式样式 */
+    .night-mode body {
+      background-color: #222;
+      color: #fff;
+    }
+    
+    .night-mode .button {
+      background-color: #fff;
+      color: #007bff;
+    }
+    
+    .night-mode .coin-image {
+      filter: brightness(50%);
+    }
   </style>
 </head>
 <body>
@@ -53,6 +70,7 @@
     <br><br>
   
     <button class="button" onclick="flipCoin()">投掷硬币</button>
+    <button class="button" onclick="toggleNightMode()">夜间模式</button>
   </div>
 
   <script>
@@ -76,6 +94,10 @@
       
       // 弹窗展示结果
       alert("投掷了 " + coinCount + " 枚硬币\n\n正面：" + headsCount + " 枚\n反面：" + (coinCount - headsCount) + " 枚");
+    }
+    
+    function toggleNightMode() {
+      document.body.classList.toggle("night-mode");
     }
   </script>
   <footer>
