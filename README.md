@@ -18,3 +18,6 @@
 2. 在本地修改代码。
 3. 提交拉取请求以将更改合并到主分支中。
    
+## 许可证
+
+该项目基于 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) 许可证。详细信息请参阅 [LICENSE.md](LICENSE.md) 文件。
