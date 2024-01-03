@@ -10,8 +10,15 @@
       text-align: center;
       margin: 0;
       padding: 20px;
-      background-color: #fff;
-      color: #000;
+      /* 夜间模式的背景颜色为黑色 */
+      background-color: white;
+      color: black;
+    }
+
+    /* 夜间模式下的样式 */
+    body.dark-mode {
+      background-color: #333;
+      color: #fff;
     }
     
     h1 {
@@ -41,21 +48,6 @@
     .coin-result {
       margin-top: 20px;
     }
-    
-    /* 夜间模式样式 */
-    .night-mode body {
-      background-color: #222;
-      color: #fff;
-    }
-    
-    .night-mode .button {
-      background-color: #fff;
-      color: #007bff;
-    }
-    
-    .night-mode .coin-image {
-      filter: brightness(50%);
-    }
   </style>
 </head>
 <body>
@@ -70,7 +62,6 @@
     <br><br>
   
     <button class="button" onclick="flipCoin()">投掷硬币</button>
-    <button class="button" onclick="toggleNightMode()">夜间模式</button>
   </div>
 
   <script>
@@ -95,10 +86,17 @@
       // 弹窗展示结果
       alert("投掷了 " + coinCount + " 枚硬币\n\n正面：" + headsCount + " 枚\n反面：" + (coinCount - headsCount) + " 枚");
     }
-    
-    function toggleNightMode() {
-      document.body.classList.toggle("night-mode");
+
+    // 检查浏览器设置，根据设置切换到夜间模式
+    function checkDarkMode() {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // 如果浏览器设置为夜间模式，则将body的class设置为"dark-mode"
+        document.body.classList.add('dark-mode');
+      }
     }
+
+    // 页面加载时检查夜间模式
+    checkDarkMode();
   </script>
   <footer>
    <p>
