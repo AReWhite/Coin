@@ -65,23 +65,24 @@
   </div>
 
   <script>
+    // 定义一个函数，用于投掷硬币
     function flipCoin() {
-      var coinCount = document.getElementById("coin-count").value;
-      var result = "";
-      var headsCount = 0;
+      var coinCount = document.getElementById("coin-count").value; // 获取输入框中的硬币数量
+      var result = ""; // 用于存储投掷结果的字符串
+      var headsCount = 0; // 记录正面出现的次数
       
-      for (var i = 0; i < coinCount; i++) {
-        var randomNumber = Math.random();
+      for (var i = 0; i < coinCount; i++) { // 进行硬币投掷的循环
+        var randomNumber = Math.random(); // 生成一个随机数
         
-        if (randomNumber < 0.5) {
-          result += '<img class="coin-image" src="coin_head.png" alt="正面">';
-          headsCount++;
-        } else {
-          result += '<img class="coin-image" src="coin_tail.png" alt="反面">';
+        if (randomNumber < 0.5) { // 如果随机数小于0.5，则认为是正面
+          result += '<img class="coin-image" src="coin_head.png" alt="正面">'; // 将正面的图片添加到结果字符串中
+          headsCount++; // 正面次数加一
+        } else { // 否则认为是反面
+          result += '<img class="coin-image" src="coin_tail.png" alt="反面">'; // 将反面的图片添加到结果字符串中
         }
       }
       
-      document.querySelector(".coin-result").innerHTML = result;
+      document.querySelector(".coin-result").innerHTML = result; // 将结果字符串显示在页面上
       
       // 弹窗展示结果
       alert("投掷了 " + coinCount + " 枚硬币\n\n正面：" + headsCount + " 枚\n反面：" + (coinCount - headsCount) + " 枚");
@@ -89,7 +90,7 @@
 
     // 检查浏览器设置，根据设置切换到夜间模式
     function checkDarkMode() {
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) { // 检查浏览器设置是否为夜间模式
         // 如果浏览器设置为夜间模式，则将body的class设置为"dark-mode"
         document.body.classList.add('dark-mode');
       }
